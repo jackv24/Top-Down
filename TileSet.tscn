@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://mapPack_tilesheet.png" type="Texture" id=1]
+
+[node name="TileSet" type="Node"]
+
+[node name="Sand_TL" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sand_TM" type="Sprite" parent="." index="1"]
+
+position = Vector2( 81.0306, 1.22775 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sand_TR" type="Sprite" parent="." index="2"]
+
+position = Vector2( 163.289, 3.6832 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sand_ML" type="Sprite" parent="." index="3"]
+
+position = Vector2( -6.10352e-005, 82.2584 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sand_MM" type="Sprite" parent="." index="4"]
+
+position = Vector2( 84.7138, 83.4861 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sand_MR" type="Sprite" parent="." index="5"]
+
+position = Vector2( 164.517, 83.4861 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 64, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sand_BL" type="Sprite" parent="." index="6"]
+
+position = Vector2( 2.45538, 170.656 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sand_BM" type="Sprite" parent="." index="7"]
+
+position = Vector2( 83.486, 171.883 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 128, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sand_BR" type="Sprite" parent="." index="8"]
+
+position = Vector2( 163.289, 170.656 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 128, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+
