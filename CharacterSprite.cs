@@ -6,6 +6,13 @@ public class CharacterSprite : Sprite
     [Export]
     private bool isRightRefault = true;
 
+    public override void _Ready()
+    {
+        Player player = GetParent() as Player;
+        if(player != null)
+            player.CharacterMoved += SetDirection;
+    }
+
     public void SetDirection(int x, int y)
     {
         Vector2 scale = Scale;

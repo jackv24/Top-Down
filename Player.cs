@@ -3,8 +3,8 @@ using System;
 
 public class Player : Node2D
 {
-    [Signal]
-    public delegate void CharacterMoved(int x, int y);
+    public delegate void CharacterMovedEvent(int x, int y);
+    public event CharacterMovedEvent CharacterMoved;
 
     private enum State
     {
@@ -88,9 +88,9 @@ public class Player : Node2D
         moveTimeElapsed = 0;
         moveDuration = move.Length() / moveSpeed;
 
-        EmitSignal(nameof(CharacterMoved), x, y);
-
         currentState = State.Moving;
+
+        CharacterMoved?.Invoke(x, y);
     }
 
     private bool ProcessMovement(float delta)
