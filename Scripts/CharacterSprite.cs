@@ -8,7 +8,7 @@ public class CharacterSprite : Sprite
 
     public override void _Ready()
     {
-        Player player = GetParent() as Player;
+        Character player = GetParent() as Character;
         if(player != null)
             player.CharacterMoved += SetDirection;
     }
