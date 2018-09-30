@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mapPack_tilesheet.png-f3182bf6e1b2a7c50543a974f13d74a3.stex"
+path="res://.import/mapPack_tilesheet.png-dca3583aad67fe8ff8c4d39122944622.stex"
 
 [deps]
 
-source_file="res://mapPack_tilesheet.png"
-dest_files=[ "res://.import/mapPack_tilesheet.png-f3182bf6e1b2a7c50543a974f13d74a3.stex" ]
+source_file="res://Tilesets/mapPack_tilesheet.png"
+dest_files=[ "res://.import/mapPack_tilesheet.png-dca3583aad67fe8ff8c4d39122944622.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/char_pink.png-c322d81d25a3874d5ed8d22540f49b98.stex"
+path="res://.import/char_blue.png-a872d2d6ab2d5a1bf23fc111f6a43b1f.stex"
 
 [deps]
 
-source_file="res://char_pink.png"
-dest_files=[ "res://.import/char_pink.png-c322d81d25a3874d5ed8d22540f49b98.stex" ]
+source_file="res://Characters/char_blue.png"
+dest_files=[ "res://.import/char_blue.png-a872d2d6ab2d5a1bf23fc111f6a43b1f.stex" ]
 
 [params]
 
