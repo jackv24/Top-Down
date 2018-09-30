@@ -3,9 +3,6 @@ using System;
 
 public class Character : Node2D
 {
-    public delegate void CharacterMovedEvent(int x, int y);
-    public event CharacterMovedEvent CharacterMoved;
-
     private enum State
     {
         Idle,
@@ -18,19 +15,29 @@ public class Character : Node2D
     private float gridSize = 64;
 
     private State currentState;
+    private State? previousState = null;
 
     private Vector2 moveStartPosition;
     private Vector2 moveEndPosition;
     private float moveTimeElapsed;
     private float moveDuration;
 
+    private AnimationPlayer anim;
+    private Sprite sprite;
+
+    [Export]
+    private bool defaultRight = true;
+
     private Level level;
 
     public override void _Ready()
     {
-        level = this.FindParentOfTypeRecursive<Level>();
+        level = this.FindParentOfType<Level>(true);
         if(level != null)
             gridSize = level.GridSize;
+
+        anim = this.FindChildOfType<AnimationPlayer>(true);
+        sprite = this.FindChildOfType<Sprite>(true);
 
         currentState = State.Idle;
 
@@ -39,14 +46,26 @@ public class Character : Node2D
 
     public override void _Process(float delta)
     {
-        switch(currentState)
+        State previousStateCache = currentState;
+
+        switch (currentState)
         {
             case State.Idle:
+                if (previousState != State.Idle)
+                {
+                    if (anim != null)
+                        anim.CurrentAnimation = "idle";
+                }
                 ProcessInput();
                 break;
 
             case State.Moving:
-                if(!ProcessMovement(delta))
+                if (previousState != State.Moving)
+                {
+                    if (anim != null)
+                        anim.CurrentAnimation = "run";
+                }
+                if (!ProcessMovement(delta))
                 {
                     currentState = State.Idle;
                     
@@ -55,6 +74,8 @@ public class Character : Node2D
                 }
                 break;
         }
+
+        previousState = previousStateCache;
     }
 
     private void SnapToGrid()
@@ -100,9 +121,17 @@ public class Character : Node2D
         moveTimeElapsed = 0;
         moveDuration = move.Length() / moveSpeed;
 
-        currentState = State.Moving;
+        if(sprite != null)
+        {
+            if (move.x != 0)
+            {
+                var scale = sprite.Scale;
+                scale.x = Mathf.Abs(scale.x) * Mathf.Sign(move.x) * (defaultRight ? 1 : -1);
+                sprite.Scale = scale;
+            }
+        }
 
-        CharacterMoved?.Invoke(x, y);
+        currentState = State.Moving;
     }
 
     private bool ProcessMovement(float delta)

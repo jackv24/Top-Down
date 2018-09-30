@@ -11,7 +11,7 @@ public class NavigableMap : TileMap
 
     public override void _Ready()
     {
-        level = this.FindParentOfTypeRecursive<Level>();
+        level = this.FindParentOfType<Level>(true);
 
         var tileChildren = this.FindChildrenOfType<TileProperties>();
         tileProperties = tileChildren
@@ -31,6 +31,15 @@ public class NavigableMap : TileMap
     }
 
     public Vector2 ProcessMovement(Vector2 startPosition, Vector2 moveVector)
+    {
+        // Process vector axis seperately so we can keep moving of one axis is still clear
+        Vector2 horizontal = ProcessMovementInternal(startPosition, moveVector.Where(y: 0));
+        Vector2 vertical = ProcessMovementInternal(startPosition, moveVector.Where(x: 0));
+
+        return horizontal + vertical;
+    }
+
+    private Vector2 ProcessMovementInternal(Vector2 startPosition, Vector2 moveVector)
     {
         TileProperties currentTile = GetTileByWorldPosition(startPosition);
         TileProperties nextTile = GetTileByWorldPosition(startPosition + moveVector);
@@ -61,9 +70,6 @@ public class NavigableMap : TileMap
             if(!currentTile.CanExitUp || !nextTile.CanEnterDown)
                 moveVector.y = 0;
         }
-
-        GD.Print($"Current Tile: {currentTile?.TileIndex.ToString() ?? "Null"}");
-        GD.Print($"Next Tile: {nextTile?.TileIndex.ToString() ?? "Null"}");
 
         return moveVector;
     }
