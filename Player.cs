@@ -15,7 +15,6 @@ public class Player : Node2D
     [Export]
     private float moveSpeed = 200;
 
-    [Export]
     private float gridSize = 64;
 
     private State currentState;
@@ -25,8 +24,14 @@ public class Player : Node2D
     private float moveTimeElapsed;
     private float moveDuration;
 
+    private Level level;
+
     public override void _Ready()
     {
+        level = this.FindParentOfTypeRecursive<Level>();
+        if(level != null)
+            gridSize = level.GridSize;
+
         currentState = State.Idle;
 
         SnapToGrid();
@@ -34,6 +39,8 @@ public class Player : Node2D
 
     public override void _Process(float delta)
     {
+        GD.Print(currentState.ToString());
+
         switch(currentState)
         {
             case State.Idle:
@@ -42,7 +49,12 @@ public class Player : Node2D
 
             case State.Moving:
                 if(!ProcessMovement(delta))
+                {
                     currentState = State.Idle;
+                    
+                    // Process input again in same frame to prevent frame pause when holding move
+                    ProcessInput();
+                }
                 break;
         }
     }
