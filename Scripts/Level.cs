@@ -15,11 +15,6 @@ public class Level : Node
         currentMap = this.FindChildrenOfType<NavigableMap>().FirstOrDefault();
     }
 
-    public override void _Process(float delta)
-    {
-
-    }
-
     public Vector2 ProcessMovement(Vector2 startPosition, Vector2 moveVector)
     {
         if (currentMap != null)

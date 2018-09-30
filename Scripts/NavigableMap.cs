@@ -35,7 +35,32 @@ public class NavigableMap : TileMap
         TileProperties currentTile = GetTileByWorldPosition(startPosition);
         TileProperties nextTile = GetTileByWorldPosition(startPosition + moveVector);
 
-        // TODO: Actually limit movement
+        if (currentTile == null)
+            return moveVector;
+        else if (nextTile == null)
+            return Vector2.Zero;
+
+        if (moveVector.x > 0)
+        {
+            if(!currentTile.CanExitRight || !nextTile.CanEnterLeft)
+                moveVector.x = 0;
+        }
+        else
+        {
+            if(!currentTile.CanExitLeft || !nextTile.CanEnterRight)
+                moveVector.x = 0;
+        }
+
+        if(moveVector.y > 0)
+        {
+            if(!currentTile.CanExitDown || !nextTile.CanEnterUp)
+                moveVector.y = 0;
+        }
+        else
+        {
+            if(!currentTile.CanExitUp || !nextTile.CanEnterDown)
+                moveVector.y = 0;
+        }
 
         GD.Print($"Current Tile: {currentTile?.TileIndex.ToString() ?? "Null"}");
         GD.Print($"Next Tile: {nextTile?.TileIndex.ToString() ?? "Null"}");
