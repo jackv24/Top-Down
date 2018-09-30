@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Level.cs" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/TileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://Scripts/NavigableMap.cs" type="Script" id=4]
+[ext_resource path="res://Scripts/TileProperties.cs" type="Script" id=5]
 
 [node name="Level1" type="Node" index="0"]
 
@@ -23,7 +25,7 @@ cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
-cell_tile_origin = 0
+cell_tile_origin = 1
 cell_y_sort = false
 cell_clip_uv = false
 collision_use_kinematic = false
@@ -34,9 +36,28 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 131075, 0, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 2, 0, 196611, 3, 0, 196612, 4, 0, 196613, 4, 0, 196614, 4, 0, 196615, 4, 0, 196616, 4, 0, 196617, 4, 0, 196618, 5, 0, 262147, 3, 0, 262148, 4, 0, 262149, 4, 0, 262150, 4, 0, 262151, 4, 0, 262152, 4, 0, 262153, 4, 0, 262154, 5, 0, 327683, 3, 0, 327684, 4, 0, 327685, 4, 0, 327686, 4, 0, 327687, 4, 0, 327688, 4, 0, 327689, 4, 0, 327690, 5, 0, 393219, 3, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 5, 0, 458755, 6, 0, 458756, 7, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 7, 0, 458762, 8, 0 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="TileProperties0" type="Node" parent="TileMap" index="0"]
+
+script = ExtResource( 5 )
+tileIndex = 0
+canMoveLeft = false
+canMoveRight = true
+canMoveUp = false
+canMoveDown = true
+
+[node name="TileProperties1" type="Node" parent="TileMap" index="1"]
+
+script = ExtResource( 5 )
+tileIndex = 1
+canMoveLeft = true
+canMoveRight = true
+canMoveUp = false
+canMoveDown = true
 
 

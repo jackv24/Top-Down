@@ -39,8 +39,6 @@ public class Character : Node2D
 
     public override void _Process(float delta)
     {
-        GD.Print(currentState.ToString());
-
         switch(currentState)
         {
             case State.Idle:
@@ -63,10 +61,8 @@ public class Character : Node2D
     {
         Vector2 pos = Position;
 
-        float halfGridSize = gridSize / 2;
-
-        pos.x = Mathf.Round(pos.x / gridSize) * gridSize - halfGridSize;
-        pos.y = Mathf.Round(pos.y / gridSize) * gridSize - halfGridSize;
+        pos.x = Mathf.Round(pos.x / gridSize) * gridSize;
+        pos.y = Mathf.Round(pos.y / gridSize) * gridSize;
 
         Position = pos;
     }
@@ -91,6 +87,10 @@ public class Character : Node2D
     {
         Vector2 move = new Vector2(gridSize * x, gridSize * y);
         moveStartPosition = Position;
+
+        if(level != null)
+            move = level.ProcessMovement(moveStartPosition, move);
+
         moveEndPosition = moveStartPosition + move;
 
         moveTimeElapsed = 0;
