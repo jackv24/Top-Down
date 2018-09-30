@@ -17,9 +17,6 @@ public class NavigableMap : TileMap
         tileProperties = tileChildren
         .GroupBy(tile => tile.TileIndex)
         .ToDictionary(group => group.Key, group => group.FirstOrDefault());
-
-        foreach(var kvp in tileProperties)
-            GD.Print($"Found tile properties for index: {kvp.Key}. Up: {kvp.Value.CanMoveUp}, Down: {kvp.Value.CanMoveDown}, Left: {kvp.Value.CanMoveLeft}, Right: {kvp.Value.CanMoveRight}");
     }
 
     public TileProperties GetTileByWorldPosition(Vector2 worldPosition)
@@ -31,5 +28,18 @@ public class NavigableMap : TileMap
             return tileProperties[tileIndex];
         else
             return null;
+    }
+
+    public Vector2 ProcessMovement(Vector2 startPosition, Vector2 moveVector)
+    {
+        TileProperties currentTile = GetTileByWorldPosition(startPosition);
+        TileProperties nextTile = GetTileByWorldPosition(startPosition + moveVector);
+
+        // TODO: Actually limit movement
+
+        GD.Print($"Current Tile: {currentTile?.TileIndex.ToString() ?? "Null"}");
+        GD.Print($"Next Tile: {nextTile?.TileIndex.ToString() ?? "Null"}");
+
+        return moveVector;
     }
 }

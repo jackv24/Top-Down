@@ -60,9 +60,10 @@ public class Character : Node2D
     private void SnapToGrid()
     {
         Vector2 pos = Position;
+        float halfGridSize = gridSize / 2;
 
-        pos.x = Mathf.Round(pos.x / gridSize) * gridSize;
-        pos.y = Mathf.Round(pos.y / gridSize) * gridSize;
+        pos.x = Mathf.Round(pos.x / gridSize) * gridSize - halfGridSize;
+        pos.y = Mathf.Round(pos.y / gridSize) * gridSize - halfGridSize;
 
         Position = pos;
     }
@@ -90,6 +91,9 @@ public class Character : Node2D
 
         if(level != null)
             move = level.ProcessMovement(moveStartPosition, move);
+
+        if(move.Length() < Mathf.Epsilon)
+            return;
 
         moveEndPosition = moveStartPosition + move;
 

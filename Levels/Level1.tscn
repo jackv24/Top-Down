@@ -18,6 +18,7 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
+editor/display_folded = true
 z_index = -1
 mode = 0
 tile_set = ExtResource( 3 )
@@ -25,7 +26,7 @@ cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
-cell_tile_origin = 1
+cell_tile_origin = 0
 cell_y_sort = false
 cell_clip_uv = false
 collision_use_kinematic = false
@@ -35,9 +36,9 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 131075, 0, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 2, 0, 196611, 3, 0, 196612, 4, 0, 196613, 4, 0, 196614, 4, 0, 196615, 4, 0, 196616, 4, 0, 196617, 4, 0, 196618, 5, 0, 262147, 3, 0, 262148, 4, 0, 262149, 4, 0, 262150, 4, 0, 262151, 4, 0, 262152, 4, 0, 262153, 4, 0, 262154, 5, 0, 327683, 3, 0, 327684, 4, 0, 327685, 4, 0, 327686, 4, 0, 327687, 4, 0, 327688, 4, 0, 327689, 4, 0, 327690, 5, 0, 393219, 3, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 5, 0, 458755, 6, 0, 458756, 7, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 7, 0, 458762, 8, 0 )
+tile_data = PoolIntArray( 131075, 0, 0, 131076, 1, 0, 131077, 1, 0, 131078, 2, 0, 131080, 0, 0, 131081, 1, 0, 131082, 2, 0, 196611, 3, 0, 196612, 4, 0, 196613, 4, 0, 196614, 5, 0, 196616, 3, 0, 196617, 4, 0, 196618, 5, 0, 262147, 3, 0, 262148, 4, 0, 262149, 4, 0, 262150, 4, 0, 262151, 1, 0, 262152, 4, 0, 262153, 4, 0, 262154, 5, 0, 327683, 3, 0, 327684, 4, 0, 327685, 4, 0, 327686, 4, 0, 327687, 4, 0, 327688, 4, 0, 327689, 4, 0, 327690, 5, 0, 393219, 3, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 5, 0, 458755, 6, 0, 458756, 7, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 7, 0, 458762, 8, 0 )
 script = ExtResource( 4 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Cell", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -46,18 +47,117 @@ __meta__ = {
 
 script = ExtResource( 5 )
 tileIndex = 0
-canMoveLeft = false
-canMoveRight = true
-canMoveUp = false
-canMoveDown = true
+canExitLeft = false
+canExitRight = true
+canExitUp = false
+canExitDown = true
+canEnterLeft = true
+canEnterRight = false
+canEnterUp = true
+canEnterDown = false
 
 [node name="TileProperties1" type="Node" parent="TileMap" index="1"]
 
 script = ExtResource( 5 )
 tileIndex = 1
-canMoveLeft = true
-canMoveRight = true
-canMoveUp = false
-canMoveDown = true
+canExitLeft = true
+canExitRight = true
+canExitUp = false
+canExitDown = true
+canEnterLeft = true
+canEnterRight = true
+canEnterUp = true
+canEnterDown = false
+
+[node name="TileProperties2" type="Node" parent="TileMap" index="2"]
+
+script = ExtResource( 5 )
+tileIndex = 2
+canExitLeft = true
+canExitRight = false
+canExitUp = false
+canExitDown = true
+canEnterLeft = false
+canEnterRight = true
+canEnterUp = true
+canEnterDown = false
+
+[node name="TileProperties3" type="Node" parent="TileMap" index="3"]
+
+script = ExtResource( 5 )
+tileIndex = 3
+canExitLeft = false
+canExitRight = true
+canExitUp = true
+canExitDown = true
+canEnterLeft = true
+canEnterRight = false
+canEnterUp = true
+canEnterDown = true
+
+[node name="TileProperties4" type="Node" parent="TileMap" index="4"]
+
+script = ExtResource( 5 )
+tileIndex = 4
+canExitLeft = true
+canExitRight = true
+canExitUp = true
+canExitDown = true
+canEnterLeft = true
+canEnterRight = true
+canEnterUp = true
+canEnterDown = true
+
+[node name="TileProperties5" type="Node" parent="TileMap" index="5"]
+
+script = ExtResource( 5 )
+tileIndex = 5
+canExitLeft = true
+canExitRight = false
+canExitUp = true
+canExitDown = true
+canEnterLeft = false
+canEnterRight = true
+canEnterUp = true
+canEnterDown = true
+
+[node name="TileProperties6" type="Node" parent="TileMap" index="6"]
+
+script = ExtResource( 5 )
+tileIndex = 6
+canExitLeft = false
+canExitRight = true
+canExitUp = true
+canExitDown = false
+canEnterLeft = true
+canEnterRight = false
+canEnterUp = false
+canEnterDown = true
+
+[node name="TileProperties7" type="Node" parent="TileMap" index="7"]
+
+script = ExtResource( 5 )
+tileIndex = 7
+canExitLeft = true
+canExitRight = true
+canExitUp = true
+canExitDown = false
+canEnterLeft = true
+canEnterRight = true
+canEnterUp = false
+canEnterDown = true
+
+[node name="TileProperties8" type="Node" parent="TileMap" index="8"]
+
+script = ExtResource( 5 )
+tileIndex = 8
+canExitLeft = true
+canExitRight = false
+canExitUp = true
+canExitDown = false
+canEnterLeft = false
+canEnterRight = true
+canEnterUp = false
+canEnterDown = true
 
 

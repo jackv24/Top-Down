@@ -22,36 +22,8 @@ public class Level : Node
 
     public Vector2 ProcessMovement(Vector2 startPosition, Vector2 moveVector)
     {
-        if(currentMap != null)
-        {
-            TileProperties tile = currentMap.GetTileByWorldPosition(startPosition);
-            if(tile == null)
-                moveVector = Vector2.Zero;
-            else
-            {
-                if(moveVector.x < 0)
-                {
-                    if(!tile.CanMoveLeft)
-                        moveVector.x = 0;
-                }
-                else
-                {
-                    if(!tile.CanMoveRight)
-                        moveVector.x = 0;
-                }
-
-                if(moveVector.y < 0)
-                {
-                    if(!tile.CanMoveUp)
-                        moveVector.y = 0;
-                }
-                else
-                {
-                    if(!tile.CanMoveDown)
-                        moveVector.y = 0;
-                }
-            }
-        }
+        if (currentMap != null)
+            return currentMap.ProcessMovement(startPosition, moveVector);
 
         return moveVector;
     }
