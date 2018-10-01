@@ -33,8 +33,13 @@ public class Character : Node2D
     public override void _Ready()
     {
         level = this.FindParentOfType<Level>(true);
-        if(level != null)
+        if (level != null)
+        {
             gridSize = level.GridSize;
+
+            // Child character will become ready before parent level
+            level.LevelReady += () => level.AddTileOccupied(this, Position);
+        }
 
         anim = this.FindChildOfType<AnimationPlayer>(true);
         sprite = this.FindChildOfType<Sprite>(true);
@@ -129,6 +134,12 @@ public class Character : Node2D
                 scale.x = Mathf.Abs(scale.x) * Mathf.Sign(move.x) * (defaultRight ? 1 : -1);
                 sprite.Scale = scale;
             }
+        }
+
+        if(level != null)
+        {
+            level.RemoveTileOccupied(this, moveStartPosition);
+            level.AddTileOccupied(this, moveEndPosition);
         }
 
         currentState = State.Moving;

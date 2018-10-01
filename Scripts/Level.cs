@@ -4,6 +4,8 @@ using System.Linq;
 
 public class Level : Node
 {
+    public event Action LevelReady;
+
     [Export]
     private float gridSize = 64;
     public float GridSize { get { return gridSize; } }
@@ -13,6 +15,8 @@ public class Level : Node
     public override void _Ready()
     {
         currentMap = this.FindChildrenOfType<NavigableMap>().FirstOrDefault();
+
+        LevelReady?.Invoke();
     }
 
     public Vector2 ProcessMovement(Vector2 startPosition, Vector2 moveVector)
@@ -21,5 +25,17 @@ public class Level : Node
             return currentMap.ProcessMovement(startPosition, moveVector);
 
         return moveVector;
+    }
+
+    public void AddTileOccupied(Character character, Vector2 worldPosition)
+    {
+        if(currentMap != null)
+            currentMap.AddTileOccupied(character, worldPosition);
+    }
+
+    public void RemoveTileOccupied(Character character, Vector2 worldPosition)
+    {
+        if(currentMap != null)
+            currentMap.RemoveTileOccupied(character, worldPosition);
     }
 }

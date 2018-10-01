@@ -2,12 +2,14 @@ using Godot;
 using System;
 using System.Linq;
 using TileDictionary = System.Collections.Generic.Dictionary<int, TileProperties>;
+using OccupyingMap = System.Collections.Generic.Dictionary<Godot.Vector2, System.Collections.Generic.List<Character>>;
 
 public class NavigableMap : TileMap
 {
     private Level level;
 
     private TileDictionary tileProperties;
+    private OccupyingMap occupyingMap = new OccupyingMap();
 
     public override void _Ready()
     {
@@ -42,11 +44,12 @@ public class NavigableMap : TileMap
     private Vector2 ProcessMovementInternal(Vector2 startPosition, Vector2 moveVector)
     {
         TileProperties currentTile = GetTileByWorldPosition(startPosition);
-        TileProperties nextTile = GetTileByWorldPosition(startPosition + moveVector);
+        Vector2 endPosition = startPosition + moveVector;
+        TileProperties nextTile = GetTileByWorldPosition(endPosition);
 
         if (currentTile == null)
             return moveVector;
-        else if (nextTile == null)
+        else if (nextTile == null || IsTileOccupied(endPosition))
             return Vector2.Zero;
 
         if (moveVector.x > 0)
@@ -72,5 +75,37 @@ public class NavigableMap : TileMap
         }
 
         return moveVector;
+    }
+
+    public void AddTileOccupied(Character character, Vector2 worldPosition)
+    {
+        Vector2 tileIndices = WorldToMap(worldPosition);
+        if(!occupyingMap.ContainsKey(tileIndices) || occupyingMap[tileIndices] == null)
+            occupyingMap[tileIndices] = new System.Collections.Generic.List<Character>();
+        occupyingMap[tileIndices].Add(character);
+    }
+
+    public void RemoveTileOccupied(Character character, Vector2 worldPosition)
+    {
+        Vector2 tileIndices = WorldToMap(worldPosition);
+        if (occupyingMap.ContainsKey(tileIndices)
+        && occupyingMap[tileIndices] != null
+        && occupyingMap[tileIndices].Contains(character))
+        {
+            occupyingMap[tileIndices].Remove(character);
+        }
+    }
+
+    public bool IsTileOccupied(Vector2 worldPosition)
+    {
+        Vector2 tileIndices = WorldToMap(worldPosition);
+        if (occupyingMap.ContainsKey(tileIndices)
+        && occupyingMap[tileIndices] != null
+        && occupyingMap[tileIndices].Count > 0)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

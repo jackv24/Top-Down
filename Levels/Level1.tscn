@@ -1,30 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Level.cs" type="Script" id=1]
-[ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Tilesets/TileSet.tres" type="TileSet" id=3]
-[ext_resource path="res://Scripts/NavigableMap.cs" type="Script" id=4]
-[ext_resource path="res://Scripts/TileProperties.cs" type="Script" id=5]
+[ext_resource path="res://Tilesets/TileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://Scripts/NavigableMap.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/TileProperties.cs" type="Script" id=4]
+[ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Characters/NPC.tscn" type="PackedScene" id=6]
 
-[node name="Level1" type="Node"]
+[node name="Level1" type="Node" index="0"]
 
 script = ExtResource( 1 )
 gridSize = 16.0
 
-[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+[node name="TileMap" type="TileMap" parent="." index="0"]
 
-[node name="TileMap" type="TileMap" parent="." index="1"]
-
-editor/display_folded = true
 z_index = -1
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
 cell_tile_origin = 0
-cell_y_sort = false
+cell_y_sort = true
 cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
@@ -34,7 +32,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 131075, 0, 0, 131076, 1, 0, 131077, 1, 0, 131078, 2, 0, 131080, 0, 0, 131081, 1, 0, 131082, 2, 0, 196611, 3, 0, 196612, 4, 0, 196613, 4, 0, 196614, 5, 0, 196616, 3, 0, 196617, 4, 0, 196618, 5, 0, 262145, 4, 0, 262146, 4, 0, 262147, 4, 0, 262148, 4, 0, 262149, 4, 0, 262150, 4, 0, 262151, 1, 0, 262152, 4, 0, 262153, 4, 0, 262154, 5, 0, 327681, 4, 0, 327683, 3, 0, 327684, 4, 0, 327685, 4, 0, 327686, 4, 0, 327687, 4, 0, 327688, 4, 0, 327689, 4, 0, 327690, 5, 0, 393217, 4, 0, 393219, 3, 0, 393220, 4, 0, 393221, 4, 0, 393222, 4, 0, 393223, 4, 0, 393224, 4, 0, 393225, 4, 0, 393226, 5, 0, 458753, 4, 0, 458755, 6, 0, 458756, 4, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 7, 0, 458762, 8, 0, 524289, 4, 0, 524292, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0 )
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Cell", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -42,7 +40,7 @@ __meta__ = {
 
 [node name="TileProperties0" type="Node" parent="TileMap" index="0"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 0
 canExitLeft = false
 canExitRight = true
@@ -55,7 +53,7 @@ canEnterDown = true
 
 [node name="TileProperties1" type="Node" parent="TileMap" index="1"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 1
 canExitLeft = true
 canExitRight = true
@@ -68,7 +66,7 @@ canEnterDown = true
 
 [node name="TileProperties2" type="Node" parent="TileMap" index="2"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 2
 canExitLeft = true
 canExitRight = false
@@ -81,7 +79,7 @@ canEnterDown = true
 
 [node name="TileProperties3" type="Node" parent="TileMap" index="3"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 3
 canExitLeft = false
 canExitRight = true
@@ -94,7 +92,7 @@ canEnterDown = true
 
 [node name="TileProperties4" type="Node" parent="TileMap" index="4"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 4
 canExitLeft = true
 canExitRight = true
@@ -107,7 +105,7 @@ canEnterDown = true
 
 [node name="TileProperties5" type="Node" parent="TileMap" index="5"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 5
 canExitLeft = true
 canExitRight = false
@@ -120,7 +118,7 @@ canEnterDown = true
 
 [node name="TileProperties6" type="Node" parent="TileMap" index="6"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 6
 canExitLeft = false
 canExitRight = true
@@ -133,7 +131,7 @@ canEnterDown = false
 
 [node name="TileProperties7" type="Node" parent="TileMap" index="7"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 7
 canExitLeft = true
 canExitRight = true
@@ -146,7 +144,7 @@ canEnterDown = false
 
 [node name="TileProperties8" type="Node" parent="TileMap" index="8"]
 
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 tileIndex = 8
 canExitLeft = true
 canExitRight = false
@@ -156,5 +154,13 @@ canEnterLeft = true
 canEnterRight = false
 canEnterUp = true
 canEnterDown = false
+
+[node name="Player" parent="TileMap" index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 125.887, 102.288 )
+
+[node name="NPC" parent="TileMap" index="10" instance=ExtResource( 6 )]
+
+position = Vector2( 59.4591, 73.3057 )
 
 

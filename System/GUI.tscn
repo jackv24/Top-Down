@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://System/UI Theme.tres" type="Theme" id=1]
-[ext_resource path="res://Scripts/DialogueReader.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/DialoguePanel.cs" type="Script" id=2]
 
-[node name="GUI" type="CanvasLayer" index="0"]
+[node name="GUI" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -11,7 +11,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Panel" type="Panel" parent="." index="0"]
+[node name="DialoguePanel" type="Panel" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -28,9 +28,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "Theme" ]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Theme", "Visibility" ]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel" index="0"]
+[node name="Text" type="RichTextLabel" parent="DialoguePanel" index="0"]
 
 modulate = Color( 0.28125, 0.197754, 0.197754, 1 )
 anchor_left = 0.0
@@ -60,7 +61,6 @@ scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 2 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 

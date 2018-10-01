@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using CharacterList = System.Collections.Generic.List<Character>;
 
 public class TileProperties : Node
 {
