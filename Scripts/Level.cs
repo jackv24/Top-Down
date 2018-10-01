@@ -38,4 +38,22 @@ public class Level : Node
         if(currentMap != null)
             currentMap.RemoveTileOccupied(character, worldPosition);
     }
+
+    public void AddInteractible(IInteractible interactible, Vector2 worldPosition)
+    {
+        if(currentMap != null)
+            currentMap.AddInteractible(interactible, worldPosition);
+    }
+
+    public void RemoveTileOccupied(IInteractible interactible, Vector2 worldPosition)
+    {
+        if(currentMap != null)
+            currentMap.RemoveInteractible(interactible, worldPosition);
+    }
+
+    public void Interact(Vector2 worldPosition)
+    {
+        if(currentMap != null)
+            currentMap.Interact(worldPosition);
+    }
 }

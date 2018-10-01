@@ -25,10 +25,12 @@ public class Character : Node2D
     private AnimationPlayer anim;
     private Sprite sprite;
 
+    protected Vector2 previousDirection;
+
     [Export]
     private bool defaultRight = true;
 
-    private Level level;
+    protected Level level;
 
     public override void _Ready()
     {
@@ -37,16 +39,25 @@ public class Character : Node2D
         {
             gridSize = level.GridSize;
 
+            SnapToGrid();
+
             // Child character will become ready before parent level
-            level.LevelReady += () => level.AddTileOccupied(this, Position);
+            level.LevelReady += () =>
+            {
+                level.AddTileOccupied(this, Position);
+                SetupLevel(level);
+            };
         }
 
         anim = this.FindChildOfType<AnimationPlayer>(true);
         sprite = this.FindChildOfType<Sprite>(true);
 
         currentState = State.Idle;
+    }
 
-        SnapToGrid();
+    protected virtual void SetupLevel(Level level)
+    {
+
     }
 
     public override void _Process(float delta)
@@ -121,6 +132,8 @@ public class Character : Node2D
                 sprite.Scale = scale;
             }
         }
+
+        previousDirection = new Vector2(x != 0 ? Mathf.Sign(x) : 0, y != 0 ? Mathf.Sign(y) : 0);
 
         Vector2 move = new Vector2(gridSize * x, gridSize * y);
         moveStartPosition = Position;

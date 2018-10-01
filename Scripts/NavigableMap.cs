@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using TileDictionary = System.Collections.Generic.Dictionary<int, TileProperties>;
 using OccupyingMap = System.Collections.Generic.Dictionary<Godot.Vector2, System.Collections.Generic.List<Character>>;
+using InteractibleMap = System.Collections.Generic.Dictionary<Godot.Vector2, System.Collections.Generic.List<IInteractible>>;
 
 public class NavigableMap : TileMap
 {
@@ -10,6 +11,7 @@ public class NavigableMap : TileMap
 
     private TileDictionary tileProperties;
     private OccupyingMap occupyingMap = new OccupyingMap();
+    private InteractibleMap interactibleMap = new InteractibleMap();
 
     public override void _Ready()
     {
@@ -107,5 +109,35 @@ public class NavigableMap : TileMap
         }
 
         return false;
+    }
+
+    public void AddInteractible(IInteractible interactible, Vector2 worldPosition)
+    {
+        Vector2 tileIndices = WorldToMap(worldPosition);
+        if(!interactibleMap.ContainsKey(tileIndices) || interactibleMap[tileIndices] == null)
+            interactibleMap[tileIndices] = new System.Collections.Generic.List<IInteractible>();
+        interactibleMap[tileIndices].Add(interactible);
+    }
+
+    public void RemoveInteractible(IInteractible interactible, Vector2 worldPosition)
+    {
+        Vector2 tileIndices = WorldToMap(worldPosition);
+        if (interactibleMap.ContainsKey(tileIndices)
+        && interactibleMap[tileIndices] != null
+        && interactibleMap[tileIndices].Contains(interactible))
+        {
+            interactibleMap[tileIndices].Remove(interactible);
+        }
+    }
+
+    public void Interact(Vector2 worldPosition)
+    {
+        Vector2 tileIndices = WorldToMap(worldPosition);
+        if (interactibleMap.ContainsKey(tileIndices)
+        && interactibleMap[tileIndices] != null
+        && interactibleMap[tileIndices].Count > 0)
+        {
+            interactibleMap[tileIndices].First().Interact();
+        }
     }
 }

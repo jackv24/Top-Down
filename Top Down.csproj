@@ -58,6 +58,7 @@
     <Compile Include="Scripts\NavigableMap.cs" />
     <Compile Include="Scripts\NodeExtensions.cs" />
     <Compile Include="Scripts\NPC.cs" />
+    <Compile Include="Scripts\IInteractible.cs" />
     <Compile Include="Scripts\Player.cs" />
     <Compile Include="Scripts\Character.cs" />
     <Compile Include="Scripts\TileProperties.cs" />
