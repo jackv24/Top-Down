@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile19.png" type="Texture" id=1]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile06.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile61.png" type="Texture" id=7]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile55.png" type="Texture" id=8]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile62.png" type="Texture" id=9]
+[ext_resource path="res://rpg-pack/tiles/generic-rpg-tile70.png" type="Texture" id=10]
 
 [node name="TileSet" type="Node"]
 
@@ -71,6 +72,13 @@ _sections_unfolded = [ "Region" ]
 
 position = Vector2( 39.3756, 40.272 )
 texture = ExtResource( 9 )
+region_rect = Rect2( 128, 128, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Forest_Solid" type="Sprite" parent="." index="9"]
+
+position = Vector2( 72.376, 42.2132 )
+texture = ExtResource( 10 )
 region_rect = Rect2( 128, 128, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
