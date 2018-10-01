@@ -47,9 +47,13 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="Ink">
+      <HintPath>$(ProjectDir)\Plugins\ink-engine-runtime.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\DialogueReader.cs" />
     <Compile Include="Scripts\Level.cs" />
     <Compile Include="Scripts\NavigableMap.cs" />
     <Compile Include="Scripts\NodeExtensions.cs" />
