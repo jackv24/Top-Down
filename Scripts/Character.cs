@@ -31,6 +31,7 @@ public class Character : Node2D
     private bool defaultRight = true;
 
     protected Level level;
+    protected Game game;
 
     public override void _Ready()
     {
@@ -48,6 +49,8 @@ public class Character : Node2D
                 SetupLevel(level);
             };
         }
+
+        game = this.FindParentOfType<Game>(true);
 
         anim = this.FindChildOfType<AnimationPlayer>(true);
         sprite = this.FindChildOfType<Sprite>(true);

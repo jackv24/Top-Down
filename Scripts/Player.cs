@@ -5,6 +5,9 @@ public class Player : Character
 {
     protected override Vector2 GetInput()
     {
+        if(game == null || game.State != GameState.Playing)
+            return Vector2.Zero;
+
         if(Input.IsActionJustPressed("submit") && previousDirection.Length() > 0)
         {
             if(level != null)

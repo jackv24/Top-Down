@@ -6,9 +6,12 @@ public class NPC : Character, IInteractible
     [Export]
     private string dialogueName;
 
+    private bool talked;
+
     public void Interact()
     {
-        DialoguePanel.StartDialogue(dialogueName);
+        DialoguePanel.StartDialogue(dialogueName, talked ? "repeat" : "");
+        talked = true;
     }
 
     protected override void SetupLevel(Level level)

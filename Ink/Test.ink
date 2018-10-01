@@ -1,10 +1,14 @@
-I found myself alone in this forest clearing.
-*   [What do?]
-    I don't know what to do.
-    -> end_go
-* [No use worrying!]
-    -> end_go
+If you want to pass me, you need a password!
+What's the password?
+* [Password.]
+    Wrong.
+    -> END
+* [1234]
+    Correct!
+    -> END
+* [Nah.]
+    -> END
     
-== end_go ==
-Well, time to go!
+== repeat ==
+You're not getting through without a password.
 -> END
