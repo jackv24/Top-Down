@@ -38,7 +38,7 @@ public class NavigableMap : TileMap
         Vector2 horizontal = ProcessMovementInternal(startPosition, moveVector.Where(y: 0));
         Vector2 vertical = ProcessMovementInternal(startPosition, moveVector.Where(x: 0));
 
-        return horizontal + vertical;
+        return ProcessMovementInternal(startPosition, horizontal + vertical);
     }
 
     private Vector2 ProcessMovementInternal(Vector2 startPosition, Vector2 moveVector)

@@ -112,6 +112,16 @@ public class Character : Node2D
 
     private void BeginMoving(int x, int y)
     {
+        if(sprite != null)
+        {
+            if (x != 0)
+            {
+                var scale = sprite.Scale;
+                scale.x = Mathf.Abs(scale.x) * Mathf.Sign(x) * (defaultRight ? 1 : -1);
+                sprite.Scale = scale;
+            }
+        }
+
         Vector2 move = new Vector2(gridSize * x, gridSize * y);
         moveStartPosition = Position;
 
@@ -125,16 +135,6 @@ public class Character : Node2D
 
         moveTimeElapsed = 0;
         moveDuration = move.Length() / moveSpeed;
-
-        if(sprite != null)
-        {
-            if (move.x != 0)
-            {
-                var scale = sprite.Scale;
-                scale.x = Mathf.Abs(scale.x) * Mathf.Sign(move.x) * (defaultRight ? 1 : -1);
-                sprite.Scale = scale;
-            }
-        }
 
         if(level != null)
         {
