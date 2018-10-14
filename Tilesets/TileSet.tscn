@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile19.png" type="Texture" id=1]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile06.png" type="Texture" id=2]
@@ -10,76 +10,72 @@
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile55.png" type="Texture" id=8]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile62.png" type="Texture" id=9]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile70.png" type="Texture" id=10]
+[ext_resource path="res://rpg-pack/tiles/generic-rpg-tile-waterfall01.png" type="Texture" id=11]
 
 [node name="TileSet" type="Node"]
 
-[node name="Sand_TL" type="Sprite" parent="." index="0"]
-
+[node name="Sand_TL" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Sand_TM" type="Sprite" parent="." index="1"]
-
+[node name="Sand_TM" type="Sprite" parent="."]
 position = Vector2( 19.2706, 0.04778 )
 texture = ExtResource( 2 )
 region_rect = Rect2( 64, 0, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Sand_TR" type="Sprite" parent="." index="2"]
-
+[node name="Sand_TR" type="Sprite" parent="."]
 position = Vector2( 38.108, 0.0965929 )
 texture = ExtResource( 3 )
 region_rect = Rect2( 128, 0, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Sand_ML" type="Sprite" parent="." index="3"]
-
+[node name="Sand_ML" type="Sprite" parent="."]
 position = Vector2( 0.647003, 20.787 )
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Sand_MM" type="Sprite" parent="." index="4"]
-
+[node name="Sand_MM" type="Sprite" parent="."]
 position = Vector2( 19.36, 20.397 )
 texture = ExtResource( 5 )
 region_rect = Rect2( 64, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Sand_MR" type="Sprite" parent="." index="5"]
-
+[node name="Sand_MR" type="Sprite" parent="."]
 position = Vector2( 38.0154, 20.397 )
 texture = ExtResource( 6 )
 region_rect = Rect2( 128, 64, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Sand_BL" type="Sprite" parent="." index="6"]
-
+[node name="Sand_BL" type="Sprite" parent="."]
 position = Vector2( 0.190639, 39.9484 )
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 128, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Sand_BM" type="Sprite" parent="." index="7"]
-
+[node name="Sand_BM" type="Sprite" parent="."]
 position = Vector2( 19.7499, 40.5284 )
 texture = ExtResource( 8 )
 region_rect = Rect2( 64, 128, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Sand_BR" type="Sprite" parent="." index="8"]
-
+[node name="Sand_BR" type="Sprite" parent="."]
 position = Vector2( 39.3756, 40.272 )
 texture = ExtResource( 9 )
 region_rect = Rect2( 128, 128, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Forest_Solid" type="Sprite" parent="." index="9"]
-
+[node name="Forest_Solid" type="Sprite" parent="."]
 position = Vector2( 72.376, 42.2132 )
 texture = ExtResource( 10 )
 region_rect = Rect2( 128, 128, 64, 64 )
 _sections_unfolded = [ "Region" ]
 
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 73.8033, 16.5209 )
+texture = ExtResource( 11 )
+region_rect = Rect2( 128, 128, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
 

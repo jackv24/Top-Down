@@ -63,6 +63,7 @@
     <Compile Include="Scripts\Player.cs" />
     <Compile Include="Scripts\Character.cs" />
     <Compile Include="Scripts\TileProperties.cs" />
+    <Compile Include="Scripts\DoorTile.cs" />
     <Compile Include="Scripts\MathExtensions.cs" />
     <Compile Include="System\Game.cs" />
   </ItemGroup>

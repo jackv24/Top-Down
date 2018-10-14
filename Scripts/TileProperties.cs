@@ -39,4 +39,9 @@ public class TileProperties : Node
     [Export]
     private bool canEnterDown = true;
     public bool CanEnterDown {get { return canEnterDown; } }
+
+    public virtual void OnTileEntered(Character enteredCharacter)
+    {
+
+    }
 }

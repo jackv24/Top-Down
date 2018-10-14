@@ -29,31 +29,31 @@ public class Level : Node
 
     public void AddTileOccupied(Character character, Vector2 worldPosition)
     {
-        if(currentMap != null)
-            currentMap.AddTileOccupied(character, worldPosition);
+        currentMap?.AddTileOccupied(character, worldPosition);
     }
 
     public void RemoveTileOccupied(Character character, Vector2 worldPosition)
     {
-        if(currentMap != null)
-            currentMap.RemoveTileOccupied(character, worldPosition);
+        currentMap?.RemoveTileOccupied(character, worldPosition);
     }
 
     public void AddInteractible(IInteractible interactible, Vector2 worldPosition)
     {
-        if(currentMap != null)
-            currentMap.AddInteractible(interactible, worldPosition);
+        currentMap?.AddInteractible(interactible, worldPosition);
     }
 
     public void RemoveTileOccupied(IInteractible interactible, Vector2 worldPosition)
     {
-        if(currentMap != null)
-            currentMap.RemoveInteractible(interactible, worldPosition);
+        currentMap?.RemoveInteractible(interactible, worldPosition);
     }
 
     public void Interact(Vector2 worldPosition)
     {
-        if(currentMap != null)
-            currentMap.Interact(worldPosition);
+        currentMap?.Interact(worldPosition);
+    }
+
+    public void SetEnteredTile(Vector2 worldPosition, Character character)
+    {
+        currentMap?.SetEnteredTile(worldPosition, character);
     }
 }

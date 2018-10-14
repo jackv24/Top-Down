@@ -90,6 +90,9 @@ public class Character : Node2D
                     
                     // Process input again in same frame to prevent frame pause when holding move
                     ProcessInput();
+
+                    // Notify tile
+                    level?.SetEnteredTile(GlobalPosition, this);
                 }
                 break;
         }

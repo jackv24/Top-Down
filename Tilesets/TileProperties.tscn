@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/TileProperties.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/DoorTile.cs" type="Script" id=2]
+
+[node name="DefaultTileproperties" type="Node"]
+
+[node name="TileProperties0" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 0
+canExitLeft = false
+canExitRight = true
+canExitUp = false
+canExitDown = true
+canEnterLeft = false
+canEnterRight = true
+canEnterUp = false
+canEnterDown = true
+
+[node name="TileProperties1" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 1
+canExitLeft = true
+canExitRight = true
+canExitUp = false
+canExitDown = true
+canEnterLeft = true
+canEnterRight = true
+canEnterUp = false
+canEnterDown = true
+
+[node name="TileProperties2" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 2
+canExitLeft = true
+canExitRight = false
+canExitUp = false
+canExitDown = true
+canEnterLeft = true
+canEnterRight = false
+canEnterUp = false
+canEnterDown = true
+
+[node name="TileProperties3" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 3
+canExitLeft = false
+canExitRight = true
+canExitUp = true
+canExitDown = true
+canEnterLeft = false
+canEnterRight = true
+canEnterUp = true
+canEnterDown = true
+
+[node name="TileProperties4" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 4
+canExitLeft = true
+canExitRight = true
+canExitUp = true
+canExitDown = true
+canEnterLeft = true
+canEnterRight = true
+canEnterUp = true
+canEnterDown = true
+
+[node name="TileProperties5" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 5
+canExitLeft = true
+canExitRight = false
+canExitUp = true
+canExitDown = true
+canEnterLeft = true
+canEnterRight = false
+canEnterUp = true
+canEnterDown = true
+
+[node name="TileProperties6" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 6
+canExitLeft = false
+canExitRight = true
+canExitUp = true
+canExitDown = false
+canEnterLeft = false
+canEnterRight = true
+canEnterUp = true
+canEnterDown = false
+
+[node name="TileProperties7" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 7
+canExitLeft = true
+canExitRight = true
+canExitUp = true
+canExitDown = false
+canEnterLeft = true
+canEnterRight = true
+canEnterUp = true
+canEnterDown = false
+
+[node name="TileProperties8" type="Node" parent="."]
+script = ExtResource( 1 )
+tileIndex = 8
+canExitLeft = true
+canExitRight = false
+canExitUp = true
+canExitDown = false
+canEnterLeft = true
+canEnterRight = false
+canEnterUp = true
+canEnterDown = false
+
+[node name="TileProperties10" type="Node" parent="."]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Script" ]
+tileIndex = 10
+canExitLeft = true
+canExitRight = true
+canExitUp = true
+canExitDown = true
+canEnterLeft = true
+canEnterRight = true
+canEnterUp = true
+canEnterDown = true
+nextLevel = null
+

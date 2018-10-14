@@ -17,7 +17,7 @@ public class NavigableMap : TileMap
     {
         level = this.FindParentOfType<Level>(true);
 
-        var tileChildren = this.FindChildrenOfType<TileProperties>();
+        var tileChildren = this.FindChildrenOfType<TileProperties>(true);
         tileProperties = tileChildren
         .GroupBy(tile => tile.TileIndex)
         .ToDictionary(group => group.Key, group => group.FirstOrDefault());
@@ -139,5 +139,12 @@ public class NavigableMap : TileMap
         {
             interactibleMap[tileIndices].First().Interact();
         }
+    }
+
+    public void SetEnteredTile(Vector2 worldPosition, Character character)
+    {
+        TileProperties tile = GetTileByWorldPosition(worldPosition);
+        if(tile != null)
+            tile.OnTileEntered(character);
     }
 }
