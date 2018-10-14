@@ -43,7 +43,7 @@ public class Character : Node2D
             SnapToGrid();
 
             // Child character will become ready before parent level
-            level.LevelReady += () =>
+            level.Ready += () =>
             {
                 level.AddTileOccupied(this, Position);
                 SetupLevel(level);

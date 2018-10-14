@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Characters\LevelCamera.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\DialoguePanel.cs" />
     <Compile Include="Scripts\Level.cs" />

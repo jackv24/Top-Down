@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
-[ext_resource path="res://rpg-pack/chars/mani/mani-idle-run.png" type="Texture" id=2]
+[ext_resource path="res://Characters/LevelCamera.cs" type="Script" id=2]
+[ext_resource path="res://rpg-pack/chars/mani/mani-idle-run.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -42,7 +43,6 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="Node2D"]
-
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -51,18 +51,17 @@ __meta__ = {
 moveSpeed = 80.0
 defaultRight = true
 
-[node name="Camera2D" type="Camera2D" parent="." index="0"]
-
+[node name="LevelCamera" type="Camera2D" parent="."]
 offset = Vector2( 0, -8 )
 anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 1, 1 )
-limit_left = -10000000
+limit_left = -1000000
 limit_top = -10000000
 limit_right = 10000000
 limit_bottom = 10000000
-limit_smoothed = false
+limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = false
@@ -76,18 +75,17 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Offset", "Smoothing" ]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
-
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -11 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 7
 frame = 2
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
@@ -97,5 +95,4 @@ anims/idle = SubResource( 1 )
 anims/run = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options" ]
-
 

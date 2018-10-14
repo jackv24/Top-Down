@@ -4,7 +4,7 @@ using System.Linq;
 
 public class Level : Node
 {
-    public event Action LevelReady;
+    public event Action Ready;
 
     [Export]
     private float gridSize = 64;
@@ -16,7 +16,7 @@ public class Level : Node
     {
         currentMap = this.FindChildrenOfType<NavigableMap>().FirstOrDefault();
 
-        LevelReady?.Invoke();
+        Ready?.Invoke();
     }
 
     public Vector2 ProcessMovement(Vector2 startPosition, Vector2 moveVector)
