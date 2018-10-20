@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile19.png" type="Texture" id=1]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile06.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile55.png" type="Texture" id=8]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile62.png" type="Texture" id=9]
 [ext_resource path="res://rpg-pack/tiles/generic-rpg-tile70.png" type="Texture" id=10]
-[ext_resource path="res://rpg-pack/tiles/generic-rpg-tile-waterfall01.png" type="Texture" id=11]
 
 [node name="TileSet" type="Node"]
 
@@ -72,10 +71,4 @@ position = Vector2( 72.376, 42.2132 )
 texture = ExtResource( 10 )
 region_rect = Rect2( 128, 128, 64, 64 )
 _sections_unfolded = [ "Region" ]
-
-[node name="Door" type="Sprite" parent="."]
-position = Vector2( 73.8033, 16.5209 )
-texture = ExtResource( 11 )
-region_rect = Rect2( 128, 128, 64, 64 )
-_sections_unfolded = [ "Material", "Region" ]
 

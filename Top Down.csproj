@@ -55,6 +55,8 @@
     <Compile Include="Characters\LevelCamera.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\DialoguePanel.cs" />
+    <Compile Include="Scripts\Door.cs" />
+    <Compile Include="Scripts\Game.cs" />
     <Compile Include="Scripts\Level.cs" />
     <Compile Include="Scripts\NavigableMap.cs" />
     <Compile Include="Scripts\NodeExtensions.cs" />
@@ -63,9 +65,7 @@
     <Compile Include="Scripts\Player.cs" />
     <Compile Include="Scripts\Character.cs" />
     <Compile Include="Scripts\TileProperties.cs" />
-    <Compile Include="Scripts\DoorTile.cs" />
     <Compile Include="Scripts\MathExtensions.cs" />
-    <Compile Include="System\Game.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

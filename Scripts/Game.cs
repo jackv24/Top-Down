@@ -29,7 +29,7 @@ public class Game : Node
         {
             var level = GetNode(currentLevel);
             RemoveChild(level);
-            level.Free();
+            CallDeferred(nameof(Free));
         }
 
         // Load next level and set as current

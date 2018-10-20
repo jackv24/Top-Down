@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Scripts/TileProperties.cs" type="Script" id=1]
-[ext_resource path="res://Scripts/DoorTile.cs" type="Script" id=2]
 
 [node name="DefaultTileproperties" type="Node"]
 
@@ -112,18 +111,4 @@ canEnterLeft = true
 canEnterRight = false
 canEnterUp = true
 canEnterDown = false
-
-[node name="TileProperties10" type="Node" parent="."]
-script = ExtResource( 2 )
-_sections_unfolded = [ "Script" ]
-tileIndex = 10
-canExitLeft = true
-canExitRight = true
-canExitUp = true
-canExitDown = true
-canEnterLeft = true
-canEnterRight = true
-canEnterUp = true
-canEnterDown = true
-nextLevel = null
 

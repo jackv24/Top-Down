@@ -114,7 +114,7 @@
 9/navigation_offset = Vector2( 8, 8 )
 9/shapes = [  ]
 9/z_index = 0
-10/name = "Door"
+10/name = "Water"
 10/texture = ExtResource( 3 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )

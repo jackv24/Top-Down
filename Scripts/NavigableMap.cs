@@ -143,8 +143,6 @@ public class NavigableMap : TileMap
 
     public void SetEnteredTile(Vector2 worldPosition, Character character)
     {
-        TileProperties tile = GetTileByWorldPosition(worldPosition);
-        if(tile != null)
-            tile.OnTileEntered(character);
+        GD.Print("Tile objects reaction not implemented");
     }
 }
